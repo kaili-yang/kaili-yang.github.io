@@ -13,7 +13,7 @@ timezone: 'America/Vancouver'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://kaili-yang.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -40,7 +40,10 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
+marked:  # 使用hexo-renderer-marked修正图片链接
+  prependRoot: true
+  postAsset: true
 relative_link: false
 future: true
 highlight:
@@ -103,5 +106,5 @@ theme: kratos-rebirth
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/kaili-yang/kaili.github.io/tree/master
+  repo: https://github.com/kaili-yang/kaili.github.io
   branch: master
