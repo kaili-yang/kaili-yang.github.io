@@ -4,8 +4,8 @@
 
 # Site
 title: Kaili Yang
-subtitle: 'Blog'
-description: 'Kaili Yang Blog'
+subtitle: 'Keep training myself to be an entrepreneur'
+description: 'A digital nomad wander between 🇨🇦Vancouver/🇨🇳Shanghai.'
 keywords:
 author: Kaili Yang
 language: en
@@ -106,5 +106,5 @@ theme: kratos-rebirth
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/kaili-yang/kaili.github.io
+  repo: https://github.com/kaili-yang/kaili-yang.github.io
   branch: master
