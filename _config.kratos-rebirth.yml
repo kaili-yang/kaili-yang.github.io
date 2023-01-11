@@ -63,7 +63,7 @@ posts:
 gitalk:
   clientID: d72013089866177c0e37
   clientSecret: 2d2d156bcc538eb995df67e8ff381076dc085180
-  repo: kaili-yang.github.io
+  repo: https://kaili-yang.github.io/
   owner: kaili-yang
   admin: ['kaili-yang']
   distractionFreeMode: false
