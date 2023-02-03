@@ -40,7 +40,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: true
+post_asset_folder: false
 marked:  # 使用hexo-renderer-marked修正图片链接
   prependRoot: true
   postAsset: true
