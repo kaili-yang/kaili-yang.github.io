@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <link rel="icon" href="https://avatars.githubusercontent.com/u/79012058?s=400&u=cafe08f995e885f2e871cc918f3ad83a33655f9c&v=4">
   
-  <title>Single Sign-On (SSO) and Central Authentication Service(CAS) | Kaili Yang</title>
+  <title>Gaussian Blur | Kaili Yang</title>
   <meta name="author" content="Kaili Yang" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -14,19 +14,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="" />
+    <meta name="keywords" content="Gaussian Blur" />
   
-  <meta name="description" content="IntroductionSingle Sign-On (SSO) is a widely used authentication technique that allows users to log in once and access multiple applications without having to enter their credentials repeatedly. It sa">
+  <meta name="description" content="Gaussian BlurHere is an example how blurred image may look like:    This blurred image is based on the much more detailed one (Credits: NASA):      Gaussian Blur filter is used for remove high frequen">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Single Sign-On (SSO) and Central Authentication Service(CAS)">
+<meta property="og:title" content="Gaussian Blur">
 <meta property="og:url" content="https://kaili-yang.github.io/2023/03/29/Mar202329/index.html">
 <meta property="og:site_name" content="Kaili Yang">
-<meta property="og:description" content="IntroductionSingle Sign-On (SSO) is a widely used authentication technique that allows users to log in once and access multiple applications without having to enter their credentials repeatedly. It sa">
+<meta property="og:description" content="Gaussian BlurHere is an example how blurred image may look like:    This blurred image is based on the much more detailed one (Credits: NASA):      Gaussian Blur filter is used for remove high frequen">
 <meta property="og:locale">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/79012058?s=400&u=cafe08f995e885f2e871cc918f3ad83a33655f9c&v=4">
 <meta property="article:published_time" content="2023-03-30T06:47:43.000Z">
-<meta property="article:modified_time" content="2023-03-30T08:03:56.104Z">
+<meta property="article:modified_time" content="2023-06-20T20:52:17.655Z">
 <meta property="article:author" content="Kaili Yang">
+<meta property="article:tag" content="Gaussian Blur">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/79012058?s=400&u=cafe08f995e885f2e871cc918f3ad83a33655f9c&v=4">
   
@@ -183,7 +184,7 @@
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
-                <h1 class="kratos-entry-title text-center" itemprop="name headline">Single Sign-On (SSO) and Central Authentication Service(CAS)</h1>
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">Gaussian Blur</h1>
             
             
             <ul class="kratos-post-meta text-center">
@@ -195,7 +196,7 @@
                     <i class="fa fa-edit"></i> 
                     
                     
-                        ~5.16K
+                        ~14.48K
                     
                     字
                 </li>
@@ -206,76 +207,215 @@
             
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
                 <div class="icon"><i class="fa fa-warning"></i></div>
-                <div class="text"><p>本文最后编辑于 <time datetime="1680163436104"></time> 前，其中的内容可能需要更新。</p></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1687294337655"></time> 前，其中的内容可能需要更新。</p></div>
             </div>
             
             
             
             <hr />
-            <div itemprop="articleBody"><h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Single Sign-On (SSO) is a widely used authentication technique that allows users to log in once and access multiple applications without having to enter their credentials repeatedly. It saves time and effort for users and increases security for applications. </p>
-<h1 id="What-is-Single-Sign-On"><a href="#What-is-Single-Sign-On" class="headerlink" title="What is Single Sign-On?"></a>What is Single Sign-On?</h1><p>Single Sign-On (SSO) is an authentication mechanism that allows a user to access multiple applications with a single set of credentials. Once the user is authenticated, they do not need to re-enter their credentials to access other applications that support SSO. The user’s identity is verified only once, and the user is granted access to all the authorized applications.</p>
-<h1 id="Benefits-of-Single-Sign-On"><a href="#Benefits-of-Single-Sign-On" class="headerlink" title="Benefits of Single Sign-On"></a>Benefits of Single Sign-On</h1><ul>
-<li>Reduced login times: Users no longer need to remember and enter multiple sets of credentials, reducing login times.</li>
-<li>Improved user experience: SSO simplifies the login process for users, improving their experience.</li>
-<li>Increased security: With SSO, the user’s credentials are verified only once, reducing the risk of credential theft.</li>
-<li>Reduced management costs: SSO reduces the number of credentials that need to be managed, simplifying the management process.<br>Token and Credential</li>
-</ul>
-<p><code>Tokens</code> and <code>credentials</code> are two important concepts in SSO. A token is a piece of data that represents a user’s identity, and it is used to grant access to an application. A credential is a piece of data that a user provides to prove their identity.</p>
-<p>In SSO, a user’s credentials are verified once, and a token is issued to represent their identity. This token is then used to grant access to other applications that support SSO. The user’s credentials are never transmitted to other applications, reducing the risk of credential theft.</p>
-<h1 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h1><p>There’re many technologies used for authentication and authorization. </p>
-<ol>
-<li><p>CAS (Central Authentication Service): CAS is a single sign-on (SSO) protocol that allows users to authenticate once with a central authentication server and then access multiple applications without having to log in again. CAS uses a ticket-granting server (TGS) to issue tickets to authenticated users, which can be used to access different applications.</p>
-</li>
-<li><p>OAuth (Open Authorization): OAuth is an open standard for authorization that allows users to grant third-party applications access to their resources without sharing their login credentials. OAuth uses access tokens to grant access, and users can revoke those tokens at any time.</p>
-</li>
-<li><p>OpenID: OpenID is a decentralized authentication protocol that allows users to authenticate with multiple websites using a single set of login credentials. OpenID relies on the concept of identity providers (IDPs) that can authenticate users and provide their identity information to websites that support OpenID.</p>
-</li>
-<li><p>LDAP (Lightweight Directory Access Protocol): LDAP is a protocol used for accessing and managing directory information, such as user account information. LDAP is often used for authentication and authorization in enterprise environments, where user account information is stored in a directory service such as Active Directory.</p>
-</li>
-<li><p>SAML (Security Assertion Markup Language): SAML is an XML-based standard for exchanging authentication and authorization data between parties, such as identity providers and service providers. SAML allows users to authenticate once with an identity provider and then access multiple service providers without having to log in again.</p>
-</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th>Technology</th>
-<th>Pros</th>
-<th>Cons</th>
-<th>Suitable for</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a href="">CAS</a></td>
-<td>Simple to set up and use; supports single sign-on for multiple applications; customizable authentication flow</td>
-<td>Limited support for modern authentication standards; requires a central authentication server</td>
-<td>Intranet environments or small-scale deployments</td>
-</tr>
-<tr>
-<td><a href="">OAuth</a></td>
-<td>Provides secure and granular authorization controls; supports delegated authorization; widely adopted by modern web applications</td>
-<td>Can be complex to set up and configure; may require additional security measures to prevent token theft or misuse</td>
-<td>Web and mobile applications with complex authorization requirements</td>
-</tr>
-<tr>
-<td>OpenID</td>
-<td>Supports decentralized authentication; reduces the need for multiple usernames and passwords; customizable authentication flow</td>
-<td>Limited support for modern authentication standards; may require additional integration efforts with third-party identity providers</td>
-<td>Websites or applications that require authentication with multiple identity providers</td>
-</tr>
-<tr>
-<td>LDAP</td>
-<td>Provides a central directory for user and application information; supports granular access controls; widely used in enterprise environments</td>
-<td>Can be complex to set up and maintain; may require additional security measures to prevent unauthorized access or data breaches</td>
-<td>Enterprise environments or organizations with a central directory service</td>
-</tr>
-<tr>
-<td>SAML</td>
-<td>Provides secure and standardized authentication and authorization data exchange; supports single sign-on and federated authentication</td>
-<td>Can be complex to set up and maintain; may require additional integration efforts with third-party identity providers; limited support for modern authentication standards</td>
-<td>Enterprises or organizations with multiple service providers or identity providers that require federated authentication</td>
-</tr>
-</tbody></table>
+            <div itemprop="articleBody"><h1 id="Gaussian-Blur"><a href="#Gaussian-Blur" class="headerlink" title="Gaussian Blur"></a>Gaussian Blur</h1><p><a name="more"></a><br><br>Here is an example how blurred image may look like:<br><br><br></p>
+<div class="separator custom-cursor-default-hover" style="clear: both; text-align: center;">
+<a target="_blank" rel="noopener" href="https://3.bp.blogspot.com/-GcmWeqsEjXs/V3zD5hJ1LWI/AAAAAAAAAuw/SYC88dPRHVoaNIhW6gMXS5wNWBK_nQ0jACLcB/s1600/EFS_N_5_35.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="320" src="https://3.bp.blogspot.com/-GcmWeqsEjXs/V3zD5hJ1LWI/AAAAAAAAAuw/SYC88dPRHVoaNIhW6gMXS5wNWBK_nQ0jACLcB/s320/EFS_N_5_35.png" width="320" class="custom-cursor-on-hover"></a></div>
+<br>
+This blurred image is based on the much more detailed one (Credits: NASA):<br>
+<br>
+<div class="separator custom-cursor-default-hover" style="clear: both; text-align: center;">
+<a target="_blank" rel="noopener" href="https://2.bp.blogspot.com/-ci8xAcibL_o/V3zEIvotYiI/AAAAAAAAAu0/QUwb0BNiDyotF_c-jeWF7PmqZ1oVmJzAgCLcB/s1600/earthFromSpace_NASA.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="320" src="https://2.bp.blogspot.com/-ci8xAcibL_o/V3zEIvotYiI/AAAAAAAAAu0/QUwb0BNiDyotF_c-jeWF7PmqZ1oVmJzAgCLcB/s320/earthFromSpace_NASA.jpg" width="320" class="custom-cursor-on-hover"></a></div>
+<br>
+<br>
+Gaussian Blur filter is used for remove high frequency components from image. This is important before the <b>edge detection</b> operation - details on image may produce false positive edges. Gaussian blur may be used also for <a href="http://imgsimon.blogspot.com/2016/06/scilab-gaussian-pyramids.html" target="_blank">resizing image</a>. <br>
+<br>
+Gaussian blur algorithm has two stages. In the stage one Gaussian kernel is created. In the stage two image is convolved by created kernel.<br>
+<br>
+Two dimensional Gaussian kernel is created due to the <a href="https://en.wikipedia.org/wiki/Gaussian_blur" target="_blank">equation</a>:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a target="_blank" rel="noopener" href="https://3.bp.blogspot.com/-cVNi7VZLB_A/V3WTNVSHSqI/AAAAAAAAAuY/J1SN00PpFGoYWgKLKo-Pa_UozqZXmDb4ACLcB/s1600/GaussianKernel.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="89" src="https://3.bp.blogspot.com/-cVNi7VZLB_A/V3WTNVSHSqI/AAAAAAAAAuY/J1SN00PpFGoYWgKLKo-Pa_UozqZXmDb4ACLcB/s320/GaussianKernel.png" width="320"></a></div>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
 </div>
+The full algorithm is more complicated and it is explained <a href="http://stackoverflow.com/questions/8204645/implementing-gaussian-blur-how-to-calculate-convolution-matrix-kernel" target="_blank">here</a>. I will write only necessary information below algorithm implementation. The core of the algorithm is a kernel:<br>
+<!-- HTML generated using hilite.me --><br>
+<div style="background: #ffffff; border-width: 0.1em 0.1em 0.1em 0.8em; border: solid gray; overflow: auto; padding: 0.2em 0.6em; width: auto;" class="custom-cursor-default-hover">
+<pre style="line-height: 125%; margin: 0;" class="custom-cursor-default-hover"><span style="color: #008800; font-weight: bold;">function</span><span style="color: #bbbbbb;"> </span>kernel2D =<span style="color: #bbbbbb;"> </span><span style="color: #0066bb; font-weight: bold;">createGaussianKernel</span>(s, k_size)<span style="color: #bbbbbb;"></span>
+<span style="color: #bbbbbb;">    </span>
+<span style="color: #bbbbbb;">    </span><span style="color: #888888;">// Creation of the base matrix 1</span>
+    
+<pre><code>kernelMat1 = &lt;span style=&quot;color: #007020;&quot;&gt;zeros&lt;/span&gt;(k_size, k_size)
+
+w = &lt;span style=&quot;color: #333333;&quot;&gt;-&lt;/span&gt;&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #333333;&quot;&gt;*&lt;/span&gt;(&lt;span style=&quot;color: #007020;&quot;&gt;floor&lt;/span&gt;(k_size&lt;span style=&quot;color: #333333;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;2&lt;/span&gt;))
+
+&lt;span style=&quot;color: #008800; font-weight: bold;&quot;&gt;for&lt;/span&gt; &lt;span style=&quot;color: #003366; font-weight: bold;&quot;&gt;i&lt;/span&gt;=&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;1&lt;/span&gt;:&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;1&lt;/span&gt;:k_size
+    kernelMat1(:,&lt;span style=&quot;color: #003366; font-weight: bold;&quot;&gt;i&lt;/span&gt;) = w
+    w = w &lt;span style=&quot;color: #333333;&quot;&gt;+&lt;/span&gt; &lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;1&lt;/span&gt;
+&lt;span style=&quot;color: #008800; font-weight: bold;&quot;&gt;end&lt;/span&gt;
+
+&lt;span style=&quot;color: #888888;&quot;&gt;// Creation of the base matrix 2&lt;/span&gt;
+
+kernelMat2 = kernelMat1&lt;span style=&quot;color: #333333;&quot;&gt;&#39;&lt;/span&gt;
+
+&lt;span style=&quot;color: #888888;&quot;&gt;// Creation of kernel&lt;/span&gt;
+
+kernelMatBase = (&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #333333;&quot;&gt;/&lt;/span&gt;(&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot;color: #333333;&quot;&gt;*&lt;/span&gt;&lt;span style=&quot;color: #003366; font-weight: bold;&quot;&gt;%pi&lt;/span&gt;&lt;span style=&quot;color: #333333;&quot;&gt;*&lt;/span&gt;s^&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;2&lt;/span&gt;))&lt;span style=&quot;color: #333333;&quot;&gt;*&lt;/span&gt;&lt;span style=&quot;color: #007020;&quot;&gt;exp&lt;/span&gt;(&lt;span style=&quot;color: #333333;&quot;&gt;-&lt;/span&gt;((kernelMat1&lt;span style=&quot;color: #333333;&quot;&gt;.^&lt;/span&gt;&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;2&lt;/span&gt; &lt;span style=&quot;color: #333333;&quot;&gt;+&lt;/span&gt; kernelMat2&lt;span style=&quot;color: #333333;&quot;&gt;.^&lt;/span&gt;&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;2&lt;/span&gt;)&lt;span style=&quot;color: #333333;&quot;&gt;/&lt;/span&gt;(&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot;color: #333333;&quot;&gt;*&lt;/span&gt;s^&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;2&lt;/span&gt;))) &lt;span style=&quot;color: #888888;&quot;&gt;// Equation based on the: https://www.wikiwand.com/en/Gaussian_blur&lt;/span&gt;
+kernel2D = kernelMatBase&lt;span style=&quot;color: #333333;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #007020;&quot;&gt;sum&lt;/span&gt;(kernelMatBase) 
+</code></pre>
+<p><span style="color: #008800; font-weight: bold;">endfunction</span><br></pre></p>
+</div>
+<br>
+<hr>
+<b><br></b>
+<b>#1 </b><b>Creation of kernel</b><br>
+<br>
+<div style="background: #ffffff; border-width: 0.1em 0.1em 0.1em 0.8em; border: solid gray; overflow: auto; padding: 0.2em 0.6em; width: auto;" class="custom-cursor-default-hover">
+<pre style="line-height: 125%; margin: 0;" class="custom-cursor-default-hover">    kernelMat1 = <span style="color: #007020;">zeros</span>(k_size, k_size)
+    
+<pre><code>w = &lt;span style=&quot;color: #333333;&quot;&gt;-&lt;/span&gt;&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #333333;&quot;&gt;*&lt;/span&gt;(&lt;span style=&quot;color: #007020;&quot;&gt;floor&lt;/span&gt;(k_size&lt;span style=&quot;color: #333333;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;2&lt;/span&gt;))
+
+&lt;span style=&quot;color: #008800; font-weight: bold;&quot;&gt;for&lt;/span&gt; &lt;span style=&quot;color: #003366; font-weight: bold;&quot;&gt;i&lt;/span&gt;=&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;1&lt;/span&gt;:&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;1&lt;/span&gt;:k_size
+    kernelMat1(:,&lt;span style=&quot;color: #003366; font-weight: bold;&quot;&gt;i&lt;/span&gt;) = w
+    w = w &lt;span style=&quot;color: #333333;&quot;&gt;+&lt;/span&gt; &lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;1&lt;/span&gt;
+&lt;span style=&quot;color: #008800; font-weight: bold;&quot;&gt;end&lt;/span&gt;
+
+&lt;span style=&quot;color: #888888;&quot;&gt;// Creation of the base matrix 2&lt;/span&gt;
+
+kernelMat2 = kernelMat1&lt;span style=&quot;color: #333333;&quot;&gt;&#39;&lt;/span&gt;
+</code></pre>
+<p></pre></p>
+</div>
+<br>
+The first line of code creates square matrix of zeros of size (ksize x ksize). If user pass as an argument number 3 then matrix will be look like:<br>
+<br>
+<span style="font-size: large;">[0 0 0</span><br>
+<span style="font-size: large;">&nbsp;0 0 0</span><br>
+<span style="font-size: large;">&nbsp;0 0 0]</span><br>
+<br>
+In the next step we are creating values for matrix (these values depends on the matrix size). In our example variable&nbsp;<span style="font-size: large;"><i>w </i></span>will be equal to <span style="font-size: large;"><i>(-1)</i></span>.<br>
+<br>
+Inside the <i><span style="font-size: large;">for</span></i> loop our matrix is filled with the proper values. After ending of loop it will be: <br>
+<br>
+<span style="font-size: large;">[-1 0 1</span><br>
+<span style="font-size: large;">&nbsp;-1 0 1</span><br>
+<span style="font-size: large;">&nbsp;-1 0 1]</span><br>
+<div>
+<span style="font-size: small;"><br></span></div>
+<div>
+And this is the first matrix (<span style="font-size: large;">x</span> in the equation provided at the beginning). We must create also other, transposed one and for this we are using the last line of code (<span style="font-size: large;">y</span> in the equation provided at the beginning). And our transposed matrix:<br>
+<br>
+<span style="font-size: large;">[-1&nbsp;-1 -1</span><br>
+<span style="font-size: large;">&nbsp; 0&nbsp;&nbsp; 0&nbsp;&nbsp;0</span><br>
+<span style="font-size: large;">&nbsp; 1&nbsp;&nbsp; 1&nbsp; 1]</span></div>
+<br>
+The last part of the function:<br>
+<!-- HTML generated using hilite.me --><br>
+<div style="background: #ffffff; border-width: 0.1em 0.1em 0.1em 0.8em; border: solid gray; overflow: auto; padding: 0.2em 0.6em; width: auto;">
+<pre style="line-height: 125%; margin: 0;">    <span style="color: #888888;">// Creation of kernel</span>
+    
+<pre><code>kernelMatBase = (&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #333333;&quot;&gt;/&lt;/span&gt;(&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot;color: #333333;&quot;&gt;*&lt;/span&gt;&lt;span style=&quot;color: #003366; font-weight: bold;&quot;&gt;%pi&lt;/span&gt;&lt;span style=&quot;color: #333333;&quot;&gt;*&lt;/span&gt;s^&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;2&lt;/span&gt;))&lt;span style=&quot;color: #333333;&quot;&gt;*&lt;/span&gt;&lt;span style=&quot;color: #007020;&quot;&gt;exp&lt;/span&gt;(&lt;span style=&quot;color: #333333;&quot;&gt;-&lt;/span&gt;((kernelMat1&lt;span style=&quot;color: #333333;&quot;&gt;.^&lt;/span&gt;&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;2&lt;/span&gt; &lt;span style=&quot;color: #333333;&quot;&gt;+&lt;/span&gt; kernelMat2&lt;span style=&quot;color: #333333;&quot;&gt;.^&lt;/span&gt;&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;2&lt;/span&gt;)&lt;span style=&quot;color: #333333;&quot;&gt;/&lt;/span&gt;(&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot;color: #333333;&quot;&gt;*&lt;/span&gt;s^&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;2&lt;/span&gt;))) &lt;span style=&quot;color: #888888;&quot;&gt;// Equation based on the: https://www.wikiwand.com/en/Gaussian_blur&lt;/span&gt;
+kernel2D = kernelMatBase&lt;span style=&quot;color: #333333;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #007020;&quot;&gt;sum&lt;/span&gt;(kernelMatBase)
+</code></pre>
+<p></pre></p>
+</div>
+<br>
+computes kernel from the equation given by Wikipedia and then this kernel is normalized. (Where <span style="font-size: large;">s</span> is the sigma parameter provided as the function input).<br>
+<br>
+<hr>
+<br>
+<b>#2 Convolution with the image</b><br>
+<div>
+<b><br></b></div>
+<div>
+Normalized kernel is returned to the basic function. Operation similar to showed in the <a href="https://imgsimon.blogspot.com/2016/06/scilab-gaussian-pyramids.html" target="_blank">previous note</a> is realised. Image is convolved with the kernel and new image (blurred) is returned.</div>
+<!-- HTML generated using hilite.me --><br>
+<div style="background: #ffffff; border-width: 0.1em 0.1em 0.1em 0.8em; border: solid gray; overflow: auto; padding: 0.2em 0.6em; width: auto;">
+<pre style="line-height: 125%; margin: 0;"><span style="color: #008800; font-weight: bold;">function</span><span style="color: #bbbbbb;"> </span>blurred_image =<span style="color: #bbbbbb;"> </span><span style="color: #0066bb; font-weight: bold;">gaussianBlur</span>(image, sigma, kernel_size)<span style="color: #bbbbbb;"></span>
+<span style="color: #bbbbbb;">    </span>
+<span style="color: #bbbbbb;">    </span><span style="color: #888888;">// Checking kernel_size</span>
+    
+<pre><code>&lt;span style=&quot;color: #008800; font-weight: bold;&quot;&gt;if&lt;/span&gt; &lt;span style=&quot;color: #007020;&quot;&gt;round&lt;/span&gt;(kernel_size&lt;span style=&quot;color: #333333;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;2&lt;/span&gt;) &lt;span style=&quot;color: #333333;&quot;&gt;==&lt;/span&gt; (kernel_size&lt;span style=&quot;color: #333333;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;2&lt;/span&gt;) &lt;span style=&quot;color: #007020;&quot;&gt;then&lt;/span&gt;
+    
+    &lt;span style=&quot;color: #007020;&quot;&gt;error&lt;/span&gt;(&lt;span style=&quot;background-color: #fff0f0;&quot;&gt;&#39;Kernel Size must be odd number&#39;&lt;/span&gt;)
+    &lt;span style=&quot;color: #007020;&quot;&gt;abort&lt;/span&gt;
+    
+&lt;span style=&quot;color: #008800; font-weight: bold;&quot;&gt;else&lt;/span&gt;
+    
+    gaussKernel = createGaussianKernel(sigma, kernel_size)
+    blurred_image = &lt;span style=&quot;color: #007020;&quot;&gt;conv2&lt;/span&gt;(image, gaussKernel, &lt;span style=&quot;background-color: #fff0f0;&quot;&gt;&quot;same&quot;&lt;/span&gt;)
+    
+&lt;span style=&quot;color: #008800; font-weight: bold;&quot;&gt;end&lt;/span&gt;
+</code></pre>
+<p><span style="color: #008800; font-weight: bold;">endfunction</span><br></pre></p>
+</div>
+<br>
+So, the whole algorithm is:<br>
+<br>
+<div style="background: #ffffff; border-width: 0.1em 0.1em 0.1em 0.8em; border: solid gray; overflow: auto; padding: 0.2em 0.6em; width: auto;">
+<pre style="line-height: 125%; margin: 0;"><span style="color: #888888;">// Functions are working with the Scilab 5.5.2 and IPD (Image Processing Design Toolbox) 8.3.2-0. Author: Szymon Molinski. Feel free to use!</span>
+
+<p><span style="color: #008800; font-weight: bold;">function</span><span style="color: #bbbbbb;"> </span>blurred_image &#x3D;<span style="color: #bbbbbb;"> </span><span style="color: #0066bb; font-weight: bold;">gaussianBlur</span>(image, sigma, kernel_size)<span style="color: #bbbbbb;"></span><br><span style="color: #bbbbbb;">    </span><br><span style="color: #bbbbbb;">    </span><span style="color: #888888;">&#x2F;&#x2F; Checking kernel_size</span></p>
+<pre><code>&lt;span style=&quot;color: #008800; font-weight: bold;&quot;&gt;if&lt;/span&gt; &lt;span style=&quot;color: #007020;&quot;&gt;round&lt;/span&gt;(kernel_size&lt;span style=&quot;color: #333333;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;2&lt;/span&gt;) &lt;span style=&quot;color: #333333;&quot;&gt;==&lt;/span&gt; (kernel_size&lt;span style=&quot;color: #333333;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;2&lt;/span&gt;) &lt;span style=&quot;color: #007020;&quot;&gt;then&lt;/span&gt;
+    
+    &lt;span style=&quot;color: #007020;&quot;&gt;error&lt;/span&gt;(&lt;span style=&quot;background-color: #fff0f0;&quot;&gt;&#39;Kernel Size must be odd number&#39;&lt;/span&gt;)
+    &lt;span style=&quot;color: #007020;&quot;&gt;abort&lt;/span&gt;
+    
+&lt;span style=&quot;color: #008800; font-weight: bold;&quot;&gt;else&lt;/span&gt;
+    
+    gaussKernel = createGaussianKernel(sigma, kernel_size)
+    blurred_image = &lt;span style=&quot;color: #007020;&quot;&gt;conv2&lt;/span&gt;(image, gaussKernel, &lt;span style=&quot;background-color: #fff0f0;&quot;&gt;&quot;same&quot;&lt;/span&gt;)
+    
+&lt;span style=&quot;color: #008800; font-weight: bold;&quot;&gt;end&lt;/span&gt;
+</code></pre>
+<p><span style="color: #008800; font-weight: bold;">endfunction</span></p>
+<p><span style="color: #008800; font-weight: bold;">function</span><span style="color: #bbbbbb;"> </span>kernel2D &#x3D;<span style="color: #bbbbbb;"> </span><span style="color: #0066bb; font-weight: bold;">createGaussianKernel</span>(s, k_size)<span style="color: #bbbbbb;"></span><br><span style="color: #bbbbbb;">    </span><br><span style="color: #bbbbbb;">    </span><span style="color: #888888;">&#x2F;&#x2F; Creation of the base matrix 1</span></p>
+<pre><code>kernelMat1 = &lt;span style=&quot;color: #007020;&quot;&gt;zeros&lt;/span&gt;(k_size, k_size)
+
+w = &lt;span style=&quot;color: #333333;&quot;&gt;-&lt;/span&gt;&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #333333;&quot;&gt;*&lt;/span&gt;(&lt;span style=&quot;color: #007020;&quot;&gt;floor&lt;/span&gt;(k_size&lt;span style=&quot;color: #333333;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;2&lt;/span&gt;))
+
+&lt;span style=&quot;color: #008800; font-weight: bold;&quot;&gt;for&lt;/span&gt; &lt;span style=&quot;color: #003366; font-weight: bold;&quot;&gt;i&lt;/span&gt;=&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;1&lt;/span&gt;:&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;1&lt;/span&gt;:k_size
+    kernelMat1(:,&lt;span style=&quot;color: #003366; font-weight: bold;&quot;&gt;i&lt;/span&gt;) = w
+    w = w &lt;span style=&quot;color: #333333;&quot;&gt;+&lt;/span&gt; &lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;1&lt;/span&gt;
+&lt;span style=&quot;color: #008800; font-weight: bold;&quot;&gt;end&lt;/span&gt;
+
+&lt;span style=&quot;color: #888888;&quot;&gt;// Creation of the base matrix 2&lt;/span&gt;
+
+kernelMat2 = kernelMat1&lt;span style=&quot;color: #333333;&quot;&gt;&#39;&lt;/span&gt;
+
+&lt;span style=&quot;color: #888888;&quot;&gt;// Creation of kernel&lt;/span&gt;
+
+kernelMatBase = (&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #333333;&quot;&gt;/&lt;/span&gt;(&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot;color: #333333;&quot;&gt;*&lt;/span&gt;&lt;span style=&quot;color: #003366; font-weight: bold;&quot;&gt;%pi&lt;/span&gt;&lt;span style=&quot;color: #333333;&quot;&gt;*&lt;/span&gt;s^&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;2&lt;/span&gt;))&lt;span style=&quot;color: #333333;&quot;&gt;*&lt;/span&gt;&lt;span style=&quot;color: #007020;&quot;&gt;exp&lt;/span&gt;(&lt;span style=&quot;color: #333333;&quot;&gt;-&lt;/span&gt;((kernelMat1&lt;span style=&quot;color: #333333;&quot;&gt;.^&lt;/span&gt;&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;2&lt;/span&gt; &lt;span style=&quot;color: #333333;&quot;&gt;+&lt;/span&gt; kernelMat2&lt;span style=&quot;color: #333333;&quot;&gt;.^&lt;/span&gt;&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;2&lt;/span&gt;)&lt;span style=&quot;color: #333333;&quot;&gt;/&lt;/span&gt;(&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot;color: #333333;&quot;&gt;*&lt;/span&gt;s^&lt;span style=&quot;color: #0000dd; font-weight: bold;&quot;&gt;2&lt;/span&gt;))) &lt;span style=&quot;color: #888888;&quot;&gt;// Equation based on the: https://www.wikiwand.com/en/Gaussian_blur&lt;/span&gt;
+kernel2D = kernelMatBase&lt;span style=&quot;color: #333333;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;color: #007020;&quot;&gt;sum&lt;/span&gt;(kernelMatBase) 
+</code></pre>
+<p><span style="color: #008800; font-weight: bold;">endfunction</span><br></pre></p>
+</div>
+<br>
+And the results:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a target="_blank" rel="noopener" href="https://4.bp.blogspot.com/-rzE1TuvzrkY/V3D2YWlfPYI/AAAAAAAAAtM/fP9EY2Azn8490mITR6dZ6zZKqOq-1j8zQCKgB/s1600/Lenna.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="320" src="https://4.bp.blogspot.com/-rzE1TuvzrkY/V3D2YWlfPYI/AAAAAAAAAtM/fP9EY2Azn8490mITR6dZ6zZKqOq-1j8zQCKgB/s320/Lenna.png" width="320"></a></div>
+<br>
+<div style="text-align: center;">
+<i>INPUT IMAGE</i></div>
+<div style="text-align: center;">
+<br></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a target="_blank" rel="noopener" href="https://4.bp.blogspot.com/-EX2ZmJqULmg/V3zGnKD3xyI/AAAAAAAAAvE/28Qbji9qP6shQbdL0Lxin8niJNyg9lJEgCLcB/s1600/Lenna15.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="320" src="https://4.bp.blogspot.com/-EX2ZmJqULmg/V3zGnKD3xyI/AAAAAAAAAvE/28Qbji9qP6shQbdL0Lxin8niJNyg9lJEgCLcB/s320/Lenna15.png" width="320"></a></div>
+<div style="text-align: center;">
+</div>
+<div style="text-align: center;">
+<br></div>
+<div style="text-align: center;">
+<i>BLURRED OUTPUT (s = 1, kernel size = 5)</i></div>
+<div style="text-align: center;">
+<br></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a target="_blank" rel="noopener" href="https://4.bp.blogspot.com/-xXBOWxjLs6A/V3zGy4u7XYI/AAAAAAAAAvI/h5ZdwmFJ-zY0PL0Gx-5tadCX4Y3MlcLngCLcB/s1600/Lenna3_27.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="320" src="https://4.bp.blogspot.com/-xXBOWxjLs6A/V3zGy4u7XYI/AAAAAAAAAvI/h5ZdwmFJ-zY0PL0Gx-5tadCX4Y3MlcLngCLcB/s320/Lenna3_27.png" width="320"></a></div>
+<br>
+<div style="text-align: center;">
+<i>BLURRED OUTPUT 2 (s = 3, kernel size = 27)</i></div>
+<div style="text-align: center;">
+<br></div>
+
+
+</div></div>
         </div>
         
             <div class="kratos-copyright text-center clearfix">
@@ -341,8 +481,12 @@
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
             const hostUrl       = "https://kaili-yang.github.io/2023/03/29/Mar202329/";
-            const title         = "「Single Sign-On (SSO) and Central Authentication Service(CAS)」";
-            const excerpt       = `IntroductionSingle Sign-On (SSO) is a widely used authentication technique that allows users to log in once and acces...`;
+            const title         = "「Gaussian Blur」";
+            const excerpt       = `Gaussian BlurHere is an example how blurred image may look like:
+
+
+
+This blurred image is based on the much more deta...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -361,10 +505,10 @@
             <div class="footer-tag clearfix">
                 <div class="pull-left">
                 <i class="fa fa-tags"></i>
-                    
+                    <a class="tag-none-link" href="/tags/Gaussian-Blur/" rel="tag">Gaussian Blur</a>
                 </div>
                 <div class="pull-date">
-                    <time datetime="2023-03-30T08:03:56.104Z" itemprop="dateModified">最后编辑：2023-03-30</time>
+                    <time datetime="2023-06-20T20:52:17.655Z" itemprop="dateModified">最后编辑：2023-06-20</time>
                 </div>
             </div>
         </footer>
@@ -373,9 +517,13 @@
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" Knowledge Cards" href="/2023/03/27/Mar202327/">&lt; 上一篇</a>
+                <a title=" Gaussian Pyramids" href="/2023/03/27/Mar202327/">&lt; 上一篇</a>
             </div>
             
+            
+            <div class="nav-next clearfix">
+                <a title=" Data analysis process" href="/2023/03/30/Mar202330/">下一篇 &gt;</a>
+            </div>
             
         </nav>
     
@@ -434,7 +582,7 @@
                 文章
             </span>
             <span class="count">
-                9
+                4
             </span>
         </a>
         <a class="meta-item" href="/categories/">
@@ -442,7 +590,7 @@
                 分类
             </span>
             <span class="count">
-                3
+                4
             </span>
         </a>
         <a class="meta-item" href="/tags/">
@@ -461,7 +609,7 @@
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Thinking/">Thinking</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1/">关于自己</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%87%8F%E5%8C%96/">量化</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Imaging-analysis/">Imaging analysis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Scilab/">Scilab</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Scilab/D3/">D3</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1/">关于自己</a><span class="category-list-count">1</span></li></ul>
   </aside>
 
 
@@ -470,7 +618,7 @@
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/IELTS/" style="font-size: 0.6em;">IELTS</a> <a href="/tags/Science/" style="font-size: 0.6em;">Science</a> <a href="/tags/%E5%A4%8D%E7%9B%98/" style="font-size: 0.8em;">复盘</a> <a href="/tags/%E8%A7%84%E5%88%92/" style="font-size: 0.6em;">规划</a>
+        <a href="/tags/Data/" style="font-size: 0.6em;">Data</a> <a href="/tags/Gaussian-Blur/" style="font-size: 0.6em;">Gaussian Blur</a> <a href="/tags/Gaussian-Pyramids/" style="font-size: 0.6em;">Gaussian Pyramids</a> <a href="/tags/%E8%A7%84%E5%88%92/" style="font-size: 0.6em;">规划</a>
       </div>
   </aside>
 
@@ -484,42 +632,28 @@
         
           
           
-            <a class="list-group-item" href="/2023/03/29/Mar202329/"><i class="fa  fa-book"></i> Single Sign-On (SSO) and Central Authentication Service(CAS)</a>
+            <a class="list-group-item" href="/2023/03/30/Mar202330/"><i class="fa  fa-book"></i> Data analysis process</a>
             
           
         
           
           
-            <a class="list-group-item" href="/2023/03/27/Mar202327/"><i class="fa  fa-book"></i> Knowledge Cards</a>
+            <a class="list-group-item" href="/2023/03/29/Mar202329/"><i class="fa  fa-book"></i> Gaussian Blur</a>
             
           
         
           
           
-            <a class="list-group-item" href="/2023/02/06/Feb202306/"><i class="fa  fa-book"></i> Insight or evolution?</a>
+            <a class="list-group-item" href="/2023/03/27/Mar202327/"><i class="fa  fa-book"></i> Gaussian Pyramids</a>
             
           
         
           
           
-            <a class="list-group-item" href="/2023/02/03/Feb202303/"><i class="fa  fa-book"></i> 写个策略脚本</a>
+            <a class="list-group-item" href="/2023/01/01/year_plan_2023/"><i class="fa  fa-book"></i> 2023年度计划</a>
             
           
         
-          
-          
-            <a class="list-group-item" href="/2023/02/02/Feb202302/"><i class="fa  fa-book"></i> 略低于预期 复盘20230202</a>
-            
-          
-        
-          
-            
-          
-            
-          
-            
-          
-            
       </ul>
   </div>
   </aside>
