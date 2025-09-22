@@ -10,6 +10,7 @@ import AlgoliaSearch from "./algolia-search";
 
 export const NAVLINKS = [
   {
+<<<<<<< HEAD
     title: "Product",
     href: `/docs${page_routes[0].href}`,
   },
@@ -19,6 +20,17 @@ export const NAVLINKS = [
   },
   {
     title: "Moment",
+=======
+    title: "Documentation",
+    href: `/docs${page_routes[0].href}`,
+  },
+  {
+    title: "Blog",
+    href: "/blog",
+  },
+  {
+    title: "Examples",
+>>>>>>> c6ba0ce57036d6af90903e33aff2c99deba70f0a
     href: "#",
   },
   {
@@ -88,7 +100,11 @@ export function Logo() {
   return (
     <Link href="/" className="flex items-center gap-2.5">
       <CommandIcon className="w-6 h-6 text-muted-foreground" strokeWidth={2} />
+<<<<<<< HEAD
       <h2 className="text-md font-bold font-code">K-Atrium</h2>
+=======
+      <h2 className="text-md font-bold font-code">AriaDocs</h2>
+>>>>>>> c6ba0ce57036d6af90903e33aff2c99deba70f0a
     </Link>
   );
 }

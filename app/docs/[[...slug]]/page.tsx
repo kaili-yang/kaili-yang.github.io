@@ -22,7 +22,11 @@ export default async function DocsPage(props: PageProps) {
     <div className="flex items-start gap-10">
       <div className="flex-[4.5] py-10 mx-auto">
         <div className="w-full mx-auto">
+<<<<<<< HEAD
           {/* <DocsBreadcrumb paths={slug} /> */}
+=======
+          <DocsBreadcrumb paths={slug} />
+>>>>>>> c6ba0ce57036d6af90903e33aff2c99deba70f0a
           <Typography>
             <h1 className="sm:text-3xl text-2xl !-mt-0.5">
               {res.frontmatter.title}
