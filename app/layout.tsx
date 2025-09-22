@@ -20,17 +20,10 @@ const monoFont = Space_Mono({
 });
 
 export const metadata: Metadata = {
-<<<<<<< HEAD
   title: "K-Atrium",
   metadataBase: new URL("https://github.com/kaili-yang/local-aira-doc/"),
   description:
     "K-Atrium is An integrated platform for a knowledge base, product manuals, and collaborative learning.",
-=======
-  title: "AriaDocs - Template",
-  metadataBase: new URL("https://ariadocs.vercel.app/"),
-  description:
-    "This comprehensive documentation template, crafted with Next.js and available as open-source, delivers a sleek and responsive design, tailored to meet all your project documentation requirements.",
->>>>>>> c6ba0ce57036d6af90903e33aff2c99deba70f0a
 };
 
 export default function RootLayout({
