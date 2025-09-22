@@ -1,4 +1,4 @@
-import DocsBreadcrumb from "@/components/docs-breadcrumb";
+// import DocsBreadcrumb from "@/components/docs-breadcrumb";
 import Pagination from "@/components/pagination";
 import Toc from "@/components/toc";
 import { page_routes } from "@/lib/routes-config";
