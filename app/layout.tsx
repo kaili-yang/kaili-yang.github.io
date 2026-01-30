@@ -20,10 +20,10 @@ const monoFont = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "K-Atrium",
+  title: "Kelly",
   metadataBase: new URL("https://github.com/kaili-yang/local-aira-doc/"),
   description:
-    "K-Atrium is An integrated platform for a knowledge base, product manuals, and collaborative learning.",
+    "Kelly is An integrated platform for a knowledge base, product manuals, and collaborative learning.",
 };
 
 export default function RootLayout({
