@@ -4,7 +4,6 @@
   "private": true,
   "description": "Katrium is An integrated platform for a knowledge base, product manuals, and collaborative learning.",
   "author": "K.L Techworks",
-
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -13,6 +12,7 @@
   },
   "dependencies": {
     "@docsearch/react": "^3.9.0",
+    "@next/third-parties": "^16.1.6",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-avatar": "^1.1.0",
     "@radix-ui/react-collapsible": "^1.1.0",
