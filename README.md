@@ -13,5 +13,8 @@ Kelly is An integrated platform for a knowledge base, product manuals, and colla
 - OpenAI
 - Vercel
 
-Git Repo: https://github.com/nisabmohd/Aria-Docs
+Git Repo: 
+https://github.com/nisabmohd/Aria-Docs
+
+
 
