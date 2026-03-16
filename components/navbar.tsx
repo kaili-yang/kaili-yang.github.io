@@ -4,17 +4,11 @@ import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import Anchor from "./anchor";
 import { SheetLeftbar } from "./leftbar";
-import { page_routes } from "@/lib/routes-config";
 import { SheetClose } from "@/components/ui/sheet";
-import AlgoliaSearch from "./algolia-search";
 
 export const NAVLINKS: { title: string; href: string }[] = [];
 
-const algolia_props = {
-  appId: process.env.ALGOLIA_APP_ID!,
-  indexName: process.env.ALGOLIA_INDEX!,
-  apiKey: process.env.ALGOLIA_SEARCH_API_KEY!,
-};
+
 
 export function Navbar() {
   return (

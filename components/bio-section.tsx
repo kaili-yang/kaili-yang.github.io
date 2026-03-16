@@ -1,8 +1,6 @@
 "use client";
 
-import { GithubIcon, TwitterIcon, CodeIcon, BoxesIcon } from "lucide-react";
-import Link from "next/link";
-import { buttonVariants } from "./ui/button";
+import { CodeIcon, BoxesIcon } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 
 export default function BioSection() {
