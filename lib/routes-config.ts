@@ -10,39 +10,17 @@ export type EachRoute = {
 
 export const ROUTES: EachRoute[] = [
   {
-    title: "Getting Started",
+    title: "Readings",
     href: "/getting-started",
     noLink: true,
     items: [
-      { title: "Introduction", href: "/introduction" },
       {
-        title: "Installation",
-        href: "/installation",
-      },
-      { title: "Quick Start Guide", href: "/quick-start-guide" },
-      {
-        title: "Project Structure",
-        href: "/project-structure",
-      },
-      {
-        title: "Components",
-        href: "/components",
+        title: "Software architecture - The hard parts",
+        href: "/software-architecture",
+        noLink: true,
         items: [
-          { title: "Stepper", href: "/stepper" },
-          { title: "Tabs", href: "/tabs" },
-          { title: "Note", href: "/note" },
-          { title: "Code Block", href: "/code-block" },
-          { title: "Image & Link", href: "/image-link" },
-          { title: "File System", href: "/file-system", tag: "New" },
-          { title: "Custom", href: "/custom" },
+          { title: "key terms", href: "/key-terms" },
         ],
-      },
-      { title: "Internationalization", href: "/i18n" },
-      { title: "Algolia Search", href: "/algolia-search", tag: "New" },
-      { title: "Themes", href: "/themes" },
-      {
-        title: "Customize",
-        href: "/customize",
       },
     ],
   },

@@ -10,24 +10,12 @@ import AlgoliaSearch from "./algolia-search";
 
 export const NAVLINKS = [
   {
-    title: "Product",
+    title: "Note",
     href: `/docs${page_routes[0].href}`,
   },
   {
-    title: "Column",
+    title: "Blog",
     href: "/blog",
-  },
-  {
-    title: "Moment",
-    href: "#",
-  },
-  {
-    title: "Guides",
-    href: "#",
-  },
-  {
-    title: "Community",
-    href: "https://github.com/nisabmohd/Aria-Docs/discussions",
   },
 ];
 
@@ -58,7 +46,7 @@ export function Navbar() {
           <div className="flex items-center justify-between sm:gap-2">
             <div className="flex ml-4 sm:ml-0">
               <Link
-                href="https://github.com/nisabmohd/NexDocs"
+                href="https://github.com/kaili-yang/local-aira-doc"
                 className={buttonVariants({
                   variant: "ghost",
                   size: "icon",
@@ -67,7 +55,7 @@ export function Navbar() {
                 <GithubIcon className="h-[1.1rem] w-[1.1rem]" />
               </Link>
               <Link
-                href="#"
+                href="https://x.com/KellyYa75580321"
                 className={buttonVariants({
                   variant: "ghost",
                   size: "icon",
