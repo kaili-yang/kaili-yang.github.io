@@ -6,12 +6,7 @@ import Anchor from "./anchor";
 import { SheetLeftbar } from "./leftbar";
 import { SheetClose } from "@/components/ui/sheet";
 
-export const NAVLINKS: { title: string; href: string }[] = [
-  {
-    title: "ComfyUI",
-    href: "/docs/comfyui/introduction",
-  },
-];
+export const NAVLINKS: { title: string; href: string }[] = [];
 
 
 

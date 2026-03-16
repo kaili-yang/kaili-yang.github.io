@@ -39,16 +39,6 @@ export const ROUTES: EachRoute[] = [
       },
     ],
   },
-  {
-    title: "ComfyUI",
-    href: "/comfyui",
-    items: [
-      {
-        title: "Introduction",
-        href: "/introduction",
-      },
-    ],
-  },
 ];
 
 type Page = { title: string; href: string };
