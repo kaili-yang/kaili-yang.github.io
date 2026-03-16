@@ -3,7 +3,188 @@ title: key terms
 description: Key terms for Software Architecture - The Hard Parts.
 ---
 
-Explore the essential key terms and concepts from "Software Architecture: The Hard Parts".
+### No “Best Practices”
 
-## Overview
-(Content coming soon...)
+| Acronym/Term | Chinese Translation | Simple Definition | Contextual Use |
+| :--- | :--- | :--- | :--- |
+| **Trade-off analysis** | 权衡分析 | The process of objectively determining and assessing the pros and cons on either side of a consequential decision. | Focuses on finding the "least worst" design because universal "best practices" rarely exist in software architecture. |
+| **OLTP (Online Transactional Processing)** | 联机事务处理 (操作型数据) | Operational data used for the day-to-day running of a business, typically involving inserting, updating, and deleting data. | Represents the critical transactional data that a company runs on; if interrupted, the organization cannot function for very long. |
+| **Analytical data** | 分析型数据 | Non-transactional data used by data scientists and other business analysts for predictions, trending, and business intelligence. | Represents long-term strategic data that is structurally separated from operational data to untangle conflicts in distributed systems. |
+| **ADR (Architecture Decision Records)** | 架构决策记录 | A short text file (usually one to two pages long) describing a specific architecture decision. | Standardizes the documentation of structural choices, specifically detailing the Context, Decision, and Consequences of an architectural change. |
+| **Architecture governance** | 架构治理 | Any organized oversight of one or more aspects of software development. | Used to describe the process of ensuring that developers implement the design and quality principles defined by architects. |
+| **Architecture Fitness Function** | 架构适应度函数 | Any mechanism that performs an objective integrity assessment of some architecture characteristic or combination of characteristics. | Automates architecture governance, providing an executable checklist to ensure developers adhere to structural design principles during the build process. |
+| **Atomic (Fitness Function)** | 原子级适应度函数 | A fitness function that handles and tests a single architecture characteristic in isolation. | Provides highly targeted automated governance, such as running a script to check for cyclic dependencies between components within a codebase. |
+| **Holistic (Fitness Function)** | 整体级/全局级适应度函数 | A fitness function that validates a combination of interlocking architecture characteristics. | Tests synergies or conflicts between multiple forces, ensuring that improving one characteristic (like security) won't negatively affect another (like performance). |
+| **Service** | 服务 | A cohesive collection of functionality deployed as an independent executable. | Serves as a foundational definition to discuss boundaries, coupling, and workflows in distributed and microservices architectures. |
+| **Coupling** | 耦合 | A condition where two artifacts are connected such that a change in one might require a change in the other to maintain proper functionality. | Acts as a primary metric to analyze the structural entanglement and dependencies between different components, services, and data. |
+| **Component** | 组件 | An architectural building block of the application that does some sort of business or infrastructure function. | Manifests as a package, namespace, or directory, representing the fundamental structural unit extracted from monolithic applications. |
+| **Synchronous communication** | 同步通信 | A communication style where the caller must wait for the receiver's response before proceeding. | Defines strict temporal coupling during workflows, dictating how services interact at runtime. |
+| **Asynchronous communication** | 异步通信 | A communication style where the caller does not wait for a response before proceeding. | Decouples services in time, allowing the caller to optionally be notified through a separate channel when the request completes. |
+| **Orchestrated coordination** | 编排式协调 | A workflow pattern containing a primary service whose main responsibility is to coordinate the workflow. | Describes centralized control and mediation in a distributed transaction or workflow. |
+| **Choreographed coordination** | 协同式/编舞式协调 | A decentralized workflow pattern lacking a central orchestrator. | Describes highly decoupled workflows where services share coordination responsibilities and pass control directly to one another. |
+| **Atomicity** | 原子性 | A state where all parts of a workflow maintain a consistent state at all times. | Represents the strictest end of the data consistency spectrum, contrasting with eventual consistency. |
+| **Contract** | 契约 | The defined interface or boundary where two software parts join. | Encompasses method calls, remote APIs, and dependencies used to integrate components and services. |
+| **Saga** | Saga模式 (分布式事务模式) / 长篇故事 | A term describing transactional behavior in distributed architectures, originating from the definition of "a long story of heroic achievement". | Denotes the ongoing reference architecture story (The Sysops Squad Saga) and describes transactional behavior in distributed architectures. |
+
+
+### Discerning Coupling
+
+| Acronym/Term (Full Name (if applicable)) | Chinese Translation | Simple Definition | Contextual Use |
+| :--- | :--- | :--- | :--- |
+| **Architecture Quantum (Quanta)** | 架构量子 | An independently deployable artifact with high functional cohesion, high static coupling, and synchronous dynamic coupling. | Acts as the foundational measurement metric to identify structural boundaries, deployment scopes, and isolated characteristics within a distributed system. |
+| **Static Coupling** | 静态耦合 | The structural wiring between architectural parts, including dependencies, databases, operating systems, and connection points. | Used to evaluate the operational dependencies required to bootstrap and run a service, helping define the static boundaries of an architecture quantum. |
+| **Dynamic Coupling** | 动态耦合 | The runtime communication behavior between architecture quanta, specifically focusing on synchronous versus asynchronous calls. | Used to analyze how services interact and potentially entangle their operational characteristics (like performance or elasticity) during distributed workflows. |
+| **Independently Deployable** | 独立可部署性 | The ability to release and deploy a component or service as a separate unit without requiring the deployment of other system parts. | Acts as the primary boundary criteria for an architecture quantum, exposing hidden coupling points like shared databases that prevent true independent deployment. |
+| **High Functional Cohesion** | 高功能内聚 | The structural proximity of related code elements that work together to perform a specific domain workflow. | Used to limit the scope of an architecture quantum to a useful boundary, heavily overlapping with the Domain-Driven Design concept of a bounded context. |
+| **High Static Coupling (within a Quantum)** | 高静态耦合 (量子内) | The tight wiring and strict contracts between elements residing inside a single architecture quantum. | Describes the internal structural rigidity of a quantum, acknowledging that operating system dependencies and internal contracts bind internal elements tightly. |
+| **Service-Based Architecture** | 基于服务的架构 | A hybrid distributed architecture style featuring separately deployed user interfaces and coarse-grained services, but utilizing a shared monolithic database. | Cited as an example of an architecture topology that evaluates to a single architecture quantum because the shared database forces a single static coupling point. |
+| **Communication** | 通信 | The synchronicity of a connection between services, specifically whether it is synchronous or asynchronous. | Acts as one of the three core dimensions of dynamic quantum coupling, forcing architects to trade off between immediate responses and parallel processing. |
+| **Consistency** | 一致性 | The strictness of transactional integrity across a workflow, ranging from atomic (all-or-nothing) to eventual consistency. | Acts as one of the three core dimensions of dynamic quantum coupling, dictating how a system handles cross-service transactions and data fidelity. |
+| **Coordination** | 协调 | The workflow management pattern used by services, split between orchestrated (centralized) and choreographed (decentralized). | Acts as one of the three core dimensions of dynamic quantum coupling, used to determine how a distributed transaction or workflow is mediated and controlled. |
+| **Scalability** | 可扩展性 | The ability of an architecture to consistently support a large number of concurrent users. | Contrasted with elasticity to demonstrate how dynamic coupling choices (like synchronous calls) can create bottlenecks that ruin independent service scaling. |
+| **Elasticity** | 弹性 | The ability of an architecture to handle sudden bursts of user requests in a short time frame. | Used to demonstrate how static and dynamic coupling dictate the operational boundaries and responsiveness of a service during demand spikes. |
+
+### Architectural Modularity
+
+| Acronym/Term (Full Name (if applicable)) | Chinese Translation | Simple Definition | Contextual Use |
+| :--- | :--- | :--- | :--- |
+| **Architectural Modularity** | 架构模块化 | The breaking apart of large monolithic applications into separate and smaller deployment units. | Used to describe the overarching structural goal that provides capacity for growth, rapid change, and competitive advantage. |
+| **Maintainability** | 可维护性 | The ease of adding, changing, or removing features, as well as applying bug fixes. | Acts as a key technical driver for modularity, evaluated by component coupling, cohesion, complexity, and size. |
+| **Testability** | 可测试性 | The ease and completeness of testing an application. | Modularity generally improves testability by reducing the overall testing scope, but increased communication between services can negatively impact it. |
+| **Deployability** | 可部署性 | The ease, frequency, and overall risk of deploying an application. | Finer-grained modularity reduces deployment risk and allows for more frequent software releases. |
+
+### Architectural Decomposition
+
+| Acronym/Term (Full Name (if applicable)) | Chinese Translation | Simple Definition | Contextual Use |
+| :--- | :--- | :--- | :--- |
+| **Architectural Decomposition** | 架构分解 | The "how" of breaking apart a monolithic application. | Describes the tactical approaches (such as tactical forking or component-based decomposition) used to structure an architecture into smaller parts. |
+| **Component-Based Decomposition** | 基于组件的分解 | An extraction approach that applies refactoring patterns to refine and extract components to form a distributed architecture. | Used as the preferred migration strategy when a codebase has definable components and structured boundaries. |
+| **Tactical Forking** | 战术分叉 | An approach involving making replicas of an application and chipping away unwanted parts to form services. | Used as a pragmatic approach to restructure architectures that are highly coupled, unstructured "Big Balls of Mud". |
+| **Big Ball of Mud** | 大泥球 | A codebase that lacks internal structure and modularity. | Describes chaotic legacy systems where extraction is extremely difficult, making them prime candidates for the tactical forking approach. |
+| **Abstractness** | 抽象度 | The ratio of abstract elements (interfaces or abstract classes) to concrete elements in a codebase. | Used alongside instability to determine the structural health and balance of a component during codebase analysis. |
+| **Instability** | 不稳定性 | The ratio of efferent (outgoing) coupling to the total of both efferent and afferent (incoming) coupling. | Used as a metric to measure how susceptible a component is to changes triggered by other components it depends on. |
+| **Distance from the Main Sequence** | 偏离主序列的距离 | A derived holistic metric based on instability and abstractness that measures the balance of a component. | Evaluates whether a component falls into the "zone of uselessness" or "zone of pain" to help architects decide if a codebase is decomposable. |
+
+### Component-Based Decomposition Patterns
+
+| Acronym/Term (Full Name (if applicable)) | Chinese Translation | Simple Definition | Contextual Use |
+| :--- | :--- | :--- | :--- |
+| **Identify and Size Components Pattern** | 识别并衡量组件大小模式 | The process of identifying and cataloging the architectural components of an application and evaluating their relative size. | Typically the first pattern applied when breaking apart a monolith to find components that are doing too much or too little. |
+| **Gather Common Domain Components Pattern** | 聚合公共领域组件模式 | The process of identifying and collecting common domain logic and centralizing it into a single component. | Used to consolidate duplicated business logic, reducing the number of potentially duplicate services in the target distributed architecture. |
+| **Flatten Components Pattern** | 扁平化组件模式 | Ensuring components are not built on top of one another but represented strictly as leaf-nodes in a directory or namespace. | Used to clean up "orphaned classes" residing in root namespaces so that all source code belongs to well-defined components. |
+| **Determine Component Dependencies Pattern** | 确定组件依赖模式 | Analyzing the incoming and outgoing dependencies between components. | Used to paint a picture of the resulting service dependency graph, helping estimate the overall level of effort for a migration. |
+| **Create Component Domains Pattern** | 创建组件领域模式 | Logically grouping related components together to form domains. | Used to define the boundaries of what will eventually become coarse-grained domain services within the target architecture. |
+| **Create Domain Services Pattern** | 创建领域服务模式 | Extracting well-defined component domains into separately deployed domain services. | The final physical step to break apart the monolithic architecture and establish a distributed Service-based architecture. |
+| **Root Namespace / Sub-domain** | 根命名空间 / 子领域 | A namespace node that has been extended by another namespace node. | Used to differentiate between actual independent components (leaf-nodes) and hierarchical domain groupings. |
+| **Orphaned Classes** | 孤儿类 | Classes contained within a root namespace that have no definable component associated with them. | Identified during the Flatten Components Pattern to be moved into proper leaf-node components to ensure clear service boundaries. |
+
+### Pulling Apart Operational Data
+
+| Acronym/Term (Full Name (if applicable)) | Chinese Translation | Simple Definition | Contextual Use |
+| :--- | :--- | :--- | :--- |
+| **Data Disintegrators** | 数据解体驱动力 / 拆分数据的原因 | Drivers and justifications that support breaking apart a monolithic database. | Used to justify separating data based on factors like change control, connection management, scalability, and fault tolerance. |
+| **Data Integrators** | 数据集成驱动力 / 整合数据的原因 | Drivers and justifications that support keeping data together in a single database. | Weighed against disintegrators to evaluate trade-offs, specifically regarding physical data relationships (foreign keys) and database transactions. |
+| **Bounded Context** | 限界上下文 | The source code, business logic, data structures, and data all encapsulated within a specific context. | A Domain-Driven Design concept used to ensure a service exclusively owns and isolates its data schema to control breaking changes. |
+| **Data Domain** | 数据领域 | A collection of coupled database artifacts (tables, views, foreign keys) related to a particular domain. | Used as a transitional vehicle to methodically group and migrate monolithic data into separate physical schemas and servers. |
+| **Polyglot Persistence** | 混合持久化 (多语言持久化) | The practice of using different database technologies based on the specific needs of different data types. | Enables architects to select Key-Value, Document, Column Family, or Graph databases for specific services once the monolithic data is broken apart. |
+| **Sharding** | 分片 | A horizontal partition of data in a database where data resides on different servers or nodes. | Used in databases like NewSQL or NoSQL to distribute data and improve read/write performance across a cluster. |
+
+### Service Granularity
+
+| Acronym/Term (Full Name (if applicable)) | Chinese Translation | Simple Definition | Contextual Use |
+| :--- | :--- | :--- | :--- |
+| **Service Granularity** | 服务粒度 | The size of a service, determined by the scope of what the service actually does. | Represents a core challenge in distributed architectures, focusing on finding the balance between services that are too coarse-grained or too fine-grained. |
+| **Granularity Disintegrators** | 粒度拆分驱动力 | Drivers that provide justification for breaking apart a service into smaller pieces. | Used to split services based on service scope, code volatility, varying scalability needs, fault tolerance, and security. |
+| **Granularity Integrators** | 粒度整合驱动力 | Drivers that provide justification for putting services back together or keeping them consolidated. | Used to merge services to support database transactions, reduce workflow choreography, manage shared code, and preserve data relationships. |
+| **Code Volatility** | 代码波动性 | The rate at which the source code within a service changes over time. | Used as a disintegrator to isolate frequently changing code from stable code, reducing testing scope and deployment risk. |
+
+### Reuse Patterns
+
+| Acronym/Term (Full Name (if applicable)) | Chinese Translation | Simple Definition | Contextual Use |
+| :--- | :--- | :--- | :--- |
+| **Code Replication** | 代码复制 | A technique where shared code is simply copied into each service's source code repository. | Used to avoid shared dependencies entirely, though it is usually reserved for highly static, one-off code due to the difficulty of applying changes. |
+| **Shared Library** | 共享库 | An external artifact containing common code that is bound to a service at compile-time. | Used as a common code reuse technique that preserves operational decoupling but introduces dependency management and version deprecation challenges. |
+| **Shared Service** | 共享服务 | Placing shared functionality into a separately deployed service accessed at runtime via composition. | Allows instant deployment of shared code changes but introduces severe trade-offs regarding network latency, security latency, and fault tolerance. |
+| **Sidecar Pattern** | 边车模式 (Sidecar模式) | A pattern that decouples domain logic from operational infrastructure logic by placing the latter in a separate, attached component. | Used to consistently apply logging, monitoring, and circuit breakers across services without tangling them with domain behavior. |
+| **Service Mesh** | 服务网格 | A network formed by interconnecting sidecar components across an architecture. | Provides a unified operational link to manage traffic, scale, and cross-cutting concerns across all microservices consistently. |
+| **Orthogonal Coupling** | 正交耦合 | Two distinct purposes that must intersect to form a complete solution, yet remain independent. | Explains the intersection between operational concerns (like monitoring) and domain concerns, best resolved via Sidecars. |
+
+### Data Ownership and Distributed Transactions
+
+| Acronym/Term (Full Name (if applicable)) | Chinese Translation | Simple Definition | Contextual Use |
+| :--- | :--- | :--- | :--- |
+| **Single Ownership Scenario** | 单一所有权场景 | A condition where only one service performs write actions to a specific table. | The most straightforward data ownership model, naturally forming a tight bounded context between the service and the data. |
+| **Common Ownership Scenario** | 公共所有权场景 | A condition where most or all services in an architecture need to write to the same table. | Usually resolved by assigning a dedicated single service as the primary owner and forcing others to send messages to it. |
+| **Joint Ownership Scenario** | 联合所有权场景 | A condition where multiple services within the same domain perform write operations on the same table. | Addressed using specific resolution techniques such as Table Split, Data Domain, Delegate, or Service Consolidation. |
+| **Table Split Technique** | 表拆分技术 | Breaking apart a single shared table into multiple tables so each service owns its distinct data. | Used to migrate joint ownership to single ownership, though it requires data synchronization between the new tables. |
+| **Data Domain Technique** | 数据领域技术 | Forming a shared data domain where data ownership is shared in a single schema. | Resolves joint ownership by allowing multiple services to share data directly, sacrificing strict bounded contexts. |
+| **Delegate Technique** | 委托技术 | Assigning one service as the sole table owner, requiring other services to ask it to perform updates on their behalf. | Used to maintain strict single data ownership at the cost of high service coupling. |
+| **Service Consolidation Technique** | 服务合并技术 | Combining multiple services that need the same data into a single consolidated service. | Resolves joint ownership by pulling functionality together, improving performance but sacrificing granular scalability. |
+| **ACID Transaction** | ACID事务 (原子性, 一致性, 隔离性, 持久性) | A database transaction guaranteeing Atomicity, Consistency, Isolation, and Durability. | Represents a single atomic unit of work characteristic of monolithic systems, which breaks down when data is separated across distributed services. |
+| **BASE Transaction** | BASE事务 (基本可用, 软状态, 最终一致性) | A distributed transaction guaranteeing Basic Availability, Soft state, and Eventual consistency. | The necessary transactional model in distributed architectures where atomic locks across separate databases are not feasible. |
+| **Eventual Consistency** | 最终一致性 | A state where all parts of a distributed transaction will eventually synchronize and complete over time. | Replaces atomicity in distributed systems, implemented via background synchronization, orchestrated request-based, or event-based patterns. |
+| **Background Synchronization Pattern** | 后台同步模式 | Using a separate external service or batch job to periodically check and sync data sources. | An eventual consistency method that improves responsiveness but breaks bounded contexts by directly accessing multiple databases. |
+| **Orchestrated Request-Based Pattern** | 编排请求模式 | Using a dedicated orchestrator to synchronously coordinate distributed updates to keep data consistent. | Favors consistency over responsiveness and requires complex error handling or compensating transactions. |
+| **Event-Based Pattern** | 基于事件的模式 | Using asynchronous publish-and-subscribe messaging to sync data via events. | Highly decoupled and responsive eventual consistency method that requires complex error handling like dead letter queues. |
+
+### Distributed Data Access
+
+| Acronym/Term (Full Name (if applicable)) | Chinese Translation | Simple Definition | Contextual Use |
+| :--- | :--- | :--- | :--- |
+| **Inter-service Communication Pattern** | 服务间通信模式 | A data access method where a service queries the owning service using a remote access protocol to read data. | The most common but problematic pattern, as it introduces network latency, security latency, and tight operational coupling between services. |
+| **Column Schema Replication Pattern** | 列模式复制模式 | Replicating needed columns of data into the consumer's table to avoid remote querying. | Improves read performance and fault tolerance but requires complex asynchronous data synchronization to maintain consistency across tables. |
+| **Replicated Caching Pattern** | 复制缓存模式 | Utilizing an in-memory cache synchronized across services so data is available without asking for it. | Offers extremely fast data access and fault tolerance, but is generally not well suited for highly volatile data or massive data volumes. |
+
+### Managing Distributed Workflows
+
+| Acronym/Term (Full Name (if applicable)) | Chinese Translation | Simple Definition | Contextual Use |
+| :--- | :--- | :--- | :--- |
+| **Orchestration Communication Style** | 编排式通信风格 | A workflow communication style using a central mediator to manage state, optional behavior, and error handling. | Best suited for complex workflows requiring error handling and recoverability, though it can negatively impact responsiveness and scalability. |
+| **Choreography Communication Style** | 协同式/编舞式通信风格 | A decentralized workflow communication style where services share coordination responsibilities without a central mediator. | Best suited for highly scalable, simple workflows, but makes error handling and overall state management significantly more difficult. |
+| **Front Controller Pattern** | 前端控制器模式 | Placing workflow state management responsibility on the first service called in a choreographed chain of responsibility. | A technique to manage state in choreography without a dedicated orchestrator, though it adds workflow complexity to a domain service. |
+| **Semantic Coupling** | 语义耦合 | The inherent coupling dictated by the problem domain or business requirements. | Contrasted with implementation coupling; an architect can never reduce semantic coupling via implementation choices, but can make it worse. |
+| **Stateless Choreography** | 无状态协同 | Keeping no transient workflow state at all, relying on querying individual services to build a real-time snapshot. | Greatly increases scale but introduces high network overhead to rebuild complex state. |
+
+### Transactional Sagas
+
+| Acronym/Term (Full Name (if applicable)) | Chinese Translation | Simple Definition | Contextual Use |
+| :--- | :--- | :--- | :--- |
+| **Transactional Saga** | 事务型Saga | A sequence of local transactions where updates trigger events, often relying on compensation for rollbacks. | Describes various patterns (Epic, Phone Tag, Fairy Tale, etc.) to manage complex distributed transactions. |
+| **Epic Saga (sao)** | 史诗级Saga (同步, 原子, 编排) | A pattern utilizing synchronous communication, atomic consistency, and orchestrated coordination. | Mimics familiar monolithic transactions but creates severe bottlenecks and limits operational scalability in distributed architectures. |
+| **Phone Tag Saga (sac)** | 电话接龙式Saga (同步, 原子, 协同) | A pattern utilizing synchronous communication, atomic consistency, and choreographed coordination. | Highly complex due to the requirement of maintaining transactional atomicity without the help of a central orchestrator. |
+| **Fairy Tale Saga (seo)** | 童话式Saga (同步, 最终, 编排) | A pattern utilizing synchronous communication, eventual consistency, and orchestrated coordination. | A highly popular, balanced pattern that simplifies error handling by using a mediator while avoiding the strictures of distributed atomic locks. |
+| **Time Travel Saga (sec)** | 时间旅行式Saga (同步, 最终, 协同) | A pattern utilizing synchronous communication, eventual consistency, and choreographed coordination. | Good for simple, highly scalable workflows (like Pipes and Filters) that don't require the overhead of a mediator or atomic locks. |
+| **Fantasy Fiction Saga (aao)** | 奇幻小说式Saga (异步, 原子, 编排) | A pattern utilizing asynchronous communication, atomic consistency, and orchestrated coordination. | An often misguided attempt to improve performance via asynchronicity while stubbornly trying to maintain atomic transactionality. |
+| **Horror Story (aac)** | 恐怖故事式Saga (异步, 原子, 协同) | A pattern utilizing asynchronous communication, atomic consistency, and choreographed coordination. | The most problematic combination, creating immense complexity by demanding atomic consistency across asynchronous calls without a central coordinator. |
+| **Parallel Saga (aeo)** | 并行Saga (异步, 最终, 编排) | A pattern utilizing asynchronous communication, eventual consistency, and orchestrated coordination. | Offers excellent scalability and responsiveness while maintaining complex workflow control through a central mediator. |
+| **Anthology Saga (aec)** | 选集式Saga (异步, 最终, 协同) | A pattern utilizing asynchronous communication, eventual consistency, and choreographed coordination. | The most decoupled dynamic coupling pattern, offering extreme scale and throughput for simple workflows. |
+| **Compensating Transaction** | 补偿事务 | An update that reverses a prior data write action during a distributed transaction. | Used in atomic distributed sagas to undo changes if a later step fails, though it is riddled with complex issues like compensation failures. |
+| **Saga State Machine** | Saga状态机 | A pattern describing all possible paths, transition states, and corresponding actions within a distributed workflow. | Used to manage eventual consistency by tracking progress and resolving errors through retries rather than strictly rolling back data. |
+
+### Contracts
+
+| Acronym/Term (Full Name (if applicable)) | Chinese Translation | Simple Definition | Contextual Use |
+| :--- | :--- | :--- | :--- |
+| **Hard parts contract** | 架构契约 (硬部件契约) | The format used by parts of an architecture to convey information or dependencies. | Exists on a spectrum from strict (gRPC, XML) to loose (JSON, REST) and dictates the degree of integration brittleness between services. |
+| **Strict Contracts** | 严格契约 | Contracts (like XML Schema or gRPC) that require strict adherence to names, types, and ordering. | Useful for guaranteed fidelity but introduces tight coupling that makes evolving independent services difficult. |
+| **Loose Contracts** | 松散契约 | Contracts (like JSON Name/Value pairs or REST) that focus on flexibility over strict schemas. | Allows systems to evolve without breaking integration points but requires separate mechanisms to guarantee data fidelity. |
+| **Consumer-Driven Contract** | 消费者驱动契约 | A pull-model integration where the consumer defines the contract and passes it to the provider to test in their build pipeline. | A common microservices technique allowing architects to balance loose coupling for evolvability with guaranteed contract fidelity during builds. |
+| **Stamp Coupling** | 标记耦合 | Passing a large data structure between services when each service only interacts with a small part of it. | Can be an anti-pattern causing accidental over-coupling, or a useful architectural pattern for passing transient workflow state in choreographed solutions. |
+
+### Managing Analytical Data
+
+| Acronym/Term (Full Name (if applicable)) | Chinese Translation | Simple Definition | Contextual Use |
+| :--- | :--- | :--- | :--- |
+| **Data Warehouse** | 数据仓库 | A centralized repository where operational data is extracted, transformed, and loaded (ETL) into a single schema for analytics. | Often suffers from integration brittleness and extreme partitioning of domain knowledge, making it a poor fit for modern distributed architectures. |
+| **Star Schema** | 星型模式 | A dimensional data model used in warehouses separating data into measurable facts and descriptive dimensions. | Used to denormalize operational data to make analytical queries faster, but makes schema synchronization difficult. |
+| **Data Lake** | 数据湖 | A centralized repository storing raw, untransformed operational data, allowing for transformation on demand. | Created as an alternative to Data Warehouses to reduce transformation overhead, but often suffers from data staleness and lack of structure. |
+| **Data Mesh** | 数据网格 | A decentralized analytical data architecture where domains own and serve their data as a product. | Applies microservices decoupling principles to analytical data, eliminating centralized data bottlenecks and maintaining domain ownership. |
+| **Data Product Quantum (DPQ)** | 数据产品量子 | An architectural quantum adjacent to a domain service that maintains and serves discoverable analytical data. | Acts as the core structural component of a Data Mesh, operating as a highly coupled cooperative quantum to a specific operational service. |
+
+### Build Your Own Trade-Off Analysis
+
+| Acronym/Term (Full Name (if applicable)) | Chinese Translation | Simple Definition | Contextual Use |
+| :--- | :--- | :--- | :--- |
+| **Qualitative vs Quantitative Analysis** | 定性与定量分析 | Measuring the quality of a decision based on characteristics rather than strict numeric quantity. | Used because specific architectural environments vary too much to rely purely on universal numbers; relies on matrix trade-offs. |
+| **MECE List** | MECE原则 (相互独立，完全穷尽) | Mutually Exclusive, Combinatorially Exhaustive: A categorization technique aimed at covering a category space completely with no holes or overlaps. | Used by architects when analyzing trade-offs to ensure they are comparing the correct, exhaustive set of alternative technological capabilities. |
+| **The “Out of Context” Trap** | 脱离上下文陷阱 | Making a generic architectural decision that looks good on paper but fails given the specific nuances of the environment. | Emphasizes that architects must discover the correct, narrow context (e.g., polyglot programming needs) rather than relying on generic trade-off tables. |

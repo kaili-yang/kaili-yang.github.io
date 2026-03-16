@@ -1,0 +1,25 @@
+---
+title: key terms
+description: Key terms for Software Architecture - The Hard Parts.
+---
+
+| Acronym/Term (Full Name (if applicable)) | Chinese Translation | Simple Definition | Contextual Use |
+| :--- | :--- | :--- | :--- |
+| **Trade-off analysis** | 权衡分析 | The process of objectively determining and assessing the pros and cons on either side of a consequential decision. | Focuses on finding the "least worst" design because universal "best practices" rarely exist in software architecture. |
+| **OLTP (Online Transactional Processing)** | 联机事务处理 (操作型数据) | Operational data used for the day-to-day running of a business, typically involving inserting, updating, and deleting data. | Represents the critical transactional data that a company runs on; if interrupted, the organization cannot function for very long. |
+| **Analytical data** | 分析型数据 | Non-transactional data used by data scientists and other business analysts for predictions, trending, and business intelligence. | Represents long-term strategic data that is structurally separated from operational data to untangle conflicts in distributed systems. |
+| **ADR (Architecture Decision Records)** | 架构决策记录 | A short text file (usually one to two pages long) describing a specific architecture decision. | Standardizes the documentation of structural choices, specifically detailing the Context, Decision, and Consequences of an architectural change. |
+| **Architecture governance** | 架构治理 | Any organized oversight of one or more aspects of software development. | Used to describe the process of ensuring that developers implement the design and quality principles defined by architects. |
+| **Architecture Fitness Function** | 架构适应度函数 | Any mechanism that performs an objective integrity assessment of some architecture characteristic or combination of characteristics. | Automates architecture governance, providing an executable checklist to ensure developers adhere to structural design principles during the build process. |
+| **Atomic (Fitness Function)** | 原子级适应度函数 | A fitness function that handles and tests a single architecture characteristic in isolation. | Provides highly targeted automated governance, such as running a script to check for cyclic dependencies between components within a codebase. |
+| **Holistic (Fitness Function)** | 整体级/全局级适应度函数 | A fitness function that validates a combination of interlocking architecture characteristics. | Tests synergies or conflicts between multiple forces, ensuring that improving one characteristic (like security) won't negatively affect another (like performance). |
+| **Service** | 服务 | A cohesive collection of functionality deployed as an independent executable. | Serves as a foundational definition to discuss boundaries, coupling, and workflows in distributed and microservices architectures. |
+| **Coupling** | 耦合 | A condition where two artifacts are connected such that a change in one might require a change in the other to maintain proper functionality. | Acts as a primary metric to analyze the structural entanglement and dependencies between different components, services, and data. |
+| **Component** | 组件 | An architectural building block of the application that does some sort of business or infrastructure function. | Manifests as a package, namespace, or directory, representing the fundamental structural unit extracted from monolithic applications. |
+| **Synchronous communication** | 同步通信 | A communication style where the caller must wait for the receiver's response before proceeding. | Defines strict temporal coupling during workflows, dictating how services interact at runtime. |
+| **Asynchronous communication** | 异步通信 | A communication style where the caller does not wait for a response before proceeding. | Decouples services in time, allowing the caller to optionally be notified through a separate channel when the request completes. |
+| **Orchestrated coordination** | 编排式协调 | A workflow pattern containing a primary service whose main responsibility is to coordinate the workflow. | Describes centralized control and mediation in a distributed transaction or workflow. |
+| **Choreographed coordination** | 协同式/编舞式协调 | A decentralized workflow pattern lacking a central orchestrator. | Describes highly decoupled workflows where services share coordination responsibilities and pass control directly to one another. |
+| **Atomicity** | 原子性 | A state where all parts of a workflow maintain a consistent state at all times. | Represents the strictest end of the data consistency spectrum, contrasting with eventual consistency. |
+| **Contract** | 契约 | The defined interface or boundary where two software parts join. | Encompasses method calls, remote APIs, and dependencies used to integrate components and services. |
+| **Saga** | Saga模式 (分布式事务模式) / 长篇故事 | A term describing transactional behavior in distributed architectures, originating from the definition of "a long story of heroic achievement". | Denotes the ongoing reference architecture story (The Sysops Squad Saga) and describes transactional behavior in distributed architectures. |

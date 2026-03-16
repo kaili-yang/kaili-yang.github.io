@@ -83,7 +83,7 @@ export type BaseMdxFrontmatter = {
 
 export async function getCompiledDocsForSlug(slug: string) {
   try {
-    const contentPath = getDocsContentPath(slug);
+    const contentPath = await getDocsContentPath(slug);
     const rawMdx = await fs.readFile(contentPath, "utf-8");
     return await parseMdx<BaseMdxFrontmatter>(rawMdx);
   } catch (err) {
@@ -92,7 +92,7 @@ export async function getCompiledDocsForSlug(slug: string) {
 }
 
 export async function getDocsTocs(slug: string) {
-  const contentPath = getDocsContentPath(slug);
+  const contentPath = await getDocsContentPath(slug);
   const rawMdx = await fs.readFile(contentPath, "utf-8");
   // captures between ## - #### can modify accordingly
   const headingsRegex = /^(#{2,4})\s(.+)$/gm;
@@ -124,8 +124,21 @@ function sluggify(text: string) {
   return slug.replace(/[^a-z0-9-]/g, "");
 }
 
-function getDocsContentPath(slug: string) {
-  return path.join(process.cwd(), "/contents/docs/", `${slug}/index.mdx`);
+async function getDocsContentPath(slug: string) {
+  const mdxPath = path.join(process.cwd(), "/contents/docs/", `${slug}/index.mdx`);
+  const mdPath = path.join(process.cwd(), "/contents/docs/", `${slug}/index.md`);
+  
+  try {
+    await fs.access(mdxPath);
+    return mdxPath;
+  } catch {
+    try {
+      await fs.access(mdPath);
+      return mdPath;
+    } catch {
+      return mdxPath; // default back to mdx
+    }
+  }
 }
 
 function justGetFrontmatterFromMD<Frontmatter>(rawMd: string): Frontmatter {
@@ -147,13 +160,19 @@ export async function getAllChilds(pathString: string) {
 
   return await Promise.all(
     page_routes_copy.map(async (it) => {
-      const totalPath = path.join(
-        process.cwd(),
-        "/contents/docs/",
-        prevHref,
-        it.href,
-        "index.mdx"
-      );
+      const mdxPath = path.join(process.cwd(), "/contents/docs/", prevHref, it.href, "index.mdx");
+      const mdPath = path.join(process.cwd(), "/contents/docs/", prevHref, it.href, "index.md");
+      let totalPath = mdxPath;
+      try {
+        await fs.access(mdxPath);
+      } catch {
+        try {
+          await fs.access(mdPath);
+          totalPath = mdPath;
+        } catch {
+          // default to mdxPath
+        }
+      }
       const raw = await fs.readFile(totalPath, "utf-8");
       return {
         ...justGetFrontmatterFromMD<BaseMdxFrontmatter>(raw),
@@ -248,7 +267,7 @@ export async function getBlogFrontmatter(slug: string) {
 
 export async function getDocFrontmatter(path: string) {
   try {
-    const contentPath = getDocsContentPath(path);
+    const contentPath = await getDocsContentPath(path);
     const rawMdx = await fs.readFile(contentPath, "utf-8");
     return justGetFrontmatterFromMD<BlogMdxFrontmatter>(rawMdx);
   } catch {

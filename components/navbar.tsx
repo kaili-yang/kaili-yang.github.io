@@ -8,16 +8,7 @@ import { page_routes } from "@/lib/routes-config";
 import { SheetClose } from "@/components/ui/sheet";
 import AlgoliaSearch from "./algolia-search";
 
-export const NAVLINKS = [
-  {
-    title: "Note",
-    href: `/docs${page_routes[0].href}`,
-  },
-  {
-    title: "Blog",
-    href: "/blog",
-  },
-];
+export const NAVLINKS: { title: string; href: string }[] = [];
 
 const algolia_props = {
   appId: process.env.ALGOLIA_APP_ID!,
@@ -42,11 +33,11 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center sm:justify-normal justify-between sm:gap-3 ml-1 sm:w-fit w-[90%]">
-          <AlgoliaSearch {...algolia_props} />
+          {/* <AlgoliaSearch {...algolia_props} /> */}
           <div className="flex items-center justify-between sm:gap-2">
             <div className="flex ml-4 sm:ml-0">
               <Link
-                href="https://github.com/kaili-yang/local-aira-doc"
+                href="https://github.com/kaili-yang"
                 className={buttonVariants({
                   variant: "ghost",
                   size: "icon",

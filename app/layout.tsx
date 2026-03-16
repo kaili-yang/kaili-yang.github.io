@@ -34,6 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta charSet="utf-8" />
         <link
           rel="stylesheet"
           type="text/css"
@@ -51,7 +52,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <main className="sm:container mx-auto w-[90vw] h-auto scroll-smooth">
+          <main className="mx-auto w-[95vw] h-auto scroll-smooth">
             {children}
           </main>
         </ThemeProvider>

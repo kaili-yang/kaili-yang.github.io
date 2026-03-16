@@ -20,7 +20,7 @@ export default async function DocsPage(props: PageProps) {
   if (!res) notFound();
   return (
     <div className="flex items-start gap-10">
-      <div className="flex-[4.5] py-10 mx-auto">
+      <div className="flex-1 py-10 mx-auto">
         <div className="w-full mx-auto">
           {/* <DocsBreadcrumb paths={slug} /> */}
           <Typography>

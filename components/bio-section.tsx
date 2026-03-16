@@ -3,11 +3,19 @@
 import { GithubIcon, TwitterIcon, CodeIcon, BoxesIcon } from "lucide-react";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function BioSection() {
   const [coords, setCoords] = useState({ x: 0, y: 0 });
+  const [shouldFlip, setShouldFlip] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShouldFlip(true);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!containerRef.current) return;
@@ -25,22 +33,43 @@ export default function BioSection() {
     <div className="mb-12 pb-12">
       <div className="flex flex-col md:flex-row gap-12 items-center justify-center text-center md:text-left">
         <div 
-          ref={containerRef}
+          className="relative w-64 h-64 md:w-72 md:h-72 [perspective:1000px] order-first md:order-last"
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
-          className="relative block w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-white dark:border-stone-800 shadow-2xl bg-stone-100 dark:bg-stone-900 transition-transform duration-300 hover:scale-[1.02] order-first md:order-last"
         >
           <div 
-            className="absolute inset-0 w-full h-full transition-transform duration-150 ease-out"
-            style={{
-              transform: `scale(1.1) translate(${coords.x * 30}px, ${coords.y * 30}px) rotateX(${-coords.y * 10}deg) rotateY(${coords.x * 10}deg)`,
-              backgroundImage: 'url("/avatar.jpg")',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent pointer-events-none" />
-          <div className="absolute inset-0 rounded-full border-[10px] border-black/5 pointer-events-none" />
+            ref={containerRef}
+            className={`relative w-full h-full transition-all duration-300 hover:scale-[1.02] ${shouldFlip ? 'animate-coin-flip' : '[transform-style:preserve-3d]'}`}
+          >
+            {/* Front Face */}
+            <div className="absolute inset-0 w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-stone-800 shadow-2xl bg-stone-100 dark:bg-stone-900 [backface-visibility:hidden]">
+              <div 
+                className="absolute inset-0 w-full h-full transition-transform duration-150 ease-out"
+                style={{
+                  transform: `scale(1.1) translate(${coords.x * 30}px, ${coords.y * 30}px) rotateX(${-coords.y * 10}deg) rotateY(${coords.x * 10}deg)`,
+                  backgroundImage: 'url("/avatar.jpg")',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 rounded-full border-[10px] border-black/5 pointer-events-none" />
+            </div>
+
+            {/* Back Face (Same Avatar) */}
+            <div className="absolute inset-0 w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-stone-800 shadow-2xl bg-stone-100 dark:bg-stone-900 [backface-visibility:hidden] [transform:rotateY(180deg)]">
+              <div 
+                className="absolute inset-0 w-full h-full"
+                style={{
+                  backgroundImage: 'url("/avatar.jpg")',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 rounded-full border-[10px] border-black/5 pointer-events-none" />
+            </div>
+          </div>
         </div>
 
         <div className="flex-1 space-y-8 max-w-2xl">
@@ -80,21 +109,6 @@ export default function BioSection() {
                 <p className="text-sm text-muted-foreground">Exploration through words and pixels.</p>
               </div>
             </div>
-          </div>
-
-          <div className="pt-6 flex flex-wrap justify-center md:justify-start gap-4">
-            <Link
-              href="https://github.com/kaili-yang"
-              className={buttonVariants({ variant: "default", size: "lg", className: "gap-2 rounded-full px-8" })}
-            >
-              <GithubIcon className="w-5 h-5" /> Github
-            </Link>
-            <Link
-              href="https://x.com/KellyYa75580321"
-              className={buttonVariants({ variant: "outline", size: "lg", className: "gap-2 rounded-full px-8" })}
-            >
-              <TwitterIcon className="w-5 h-5" /> Follow on X
-            </Link>
           </div>
         </div>
       </div>
